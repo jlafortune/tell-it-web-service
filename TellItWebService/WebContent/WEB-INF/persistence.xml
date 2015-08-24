@@ -1,0 +1,6 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+  <persistence-unit name="article-unit">
+    <jta-data-source>jdbc/TellItDb</jta-data-source>
+    <non-jta-data-source>jdbc/TellItDb</non-jta-data-source>
+  </persistence-unit>
+</persistence>

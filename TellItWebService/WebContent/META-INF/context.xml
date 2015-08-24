@@ -1,0 +1,5 @@
+<Context>
+  <ResourceLink name="jdbc/TellItDb"
+   global="jdbc/TellItDb"
+   type="javax.sql.DataSource"/>
+</Context>
