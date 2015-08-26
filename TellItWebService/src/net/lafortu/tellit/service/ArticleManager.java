@@ -19,4 +19,8 @@ public class ArticleManager {
 		Query query = em.createNamedQuery("Article.findAll");
 		return query.getResultList();
 	}
+
+	public void saveArticle(Article article) {
+		em.persist(article);
+	}
 }
