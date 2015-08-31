@@ -20,7 +20,14 @@ public class ArticleManager {
 		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Article> findByCategory(String category) {
+		Query query = em.createNamedQuery("Article.findByCategory");
+		query.setParameter("categoryName", category);
+		return query.getResultList();
+	}
+	
 	public void saveArticle(Article article) {
 		em.persist(article);
-	}
+	}	
 }

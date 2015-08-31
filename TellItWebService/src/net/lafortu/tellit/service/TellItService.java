@@ -9,7 +9,12 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
+
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.jaxrs.json.annotation.JacksonFeatures;
+
 
 @Path("/")
 @Stateless
@@ -18,14 +23,17 @@ public class TellItService {
     private ArticleManager articleManager;
 
     /**
-     * Retrieves representation of an instance of TellItService
-     * @return an instance of String
+     * Returns all articles.
      */
     @GET
     @Path("/articles")
     @Produces("application/json")
-    public List<Article> getArticles() {
-        return articleManager.findAll();
+    public List<Article> getArticles(@QueryParam("category") String category) {
+    	if (category == null) {
+    		return articleManager.findAll();
+    	} else {
+    		return articleManager.findByCategory(category);
+    	}
     }
     
     /**
